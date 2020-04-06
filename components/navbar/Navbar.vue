@@ -1,0 +1,88 @@
+<template>
+  <header class="">
+    <div
+      class="container mx-auto sm:flex sm:justify-between sm:items-center sm:py-3"
+    >
+      <div class="flex items-center justify-between px-4 py-3 sm:p-0">
+        <div>
+          <a href="/"
+            ><img class="h-10" src="~/assets/logo_inverted.svg" alt="Tracked"
+          /></a>
+        </div>
+        <div class="sm:hidden">
+          <button
+            type="button"
+            class="block text-gray-500 hover:text-white focus:text-white focus:outline-none"
+            @click="isOpen = !isOpen"
+          >
+            <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
+              <path
+                v-if="isOpen"
+                fill-rule="evenodd"
+                d="M18.278 16.864a1 1 0 01-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 01-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 011.414-1.414l4.829 4.828 4.828-4.828a1 1 0 111.414 1.414l-4.828 4.829 4.828 4.828z"
+              />
+              <path
+                v-if="!isOpen"
+                fill-rule="evenodd"
+                d="M3 6a1 1 0 011-1h16a1 1 0 110 2H4a1 1 0 01-1-1zm0 6a1 1 0 011-1h16a1 1 0 110 2H4a1 1 0 01-1-1zm1 5a1 1 0 100 2h16a1 1 0 100-2H4z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <nav :class="isOpen ? 'block' : 'hidden'" class="sm:block">
+        <div class="px-2 pt-2 pb-4 sm:flex sm:p-0">
+          <nuxt-link
+            to="/tracklist"
+            class="block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800"
+            >Tracklist</nuxt-link
+          >
+          <AccountDropdown class="hidden sm:block sm:ml-6" />
+        </div>
+
+        <div class="px-4 py-5 border-t border-gray-800 sm:hidden">
+          <div class="flex items-center">
+            <img
+              class="h-8 w-8 rounded-full border-2 border-gray-500"
+              src="https://randomuser.me/api/portraits/women/55.jpg"
+            />
+            <span class="ml-3 font-semibold text-white">Jane Doe</span>
+          </div>
+
+          <div class="mt-4">
+            <a href="#" class="block text-gray-400 hover:text-white"
+              >Account settings</a
+            >
+            <a href="#" class="mt-2 block text-gray-400 hover:text-white"
+              >Support</a
+            >
+            <a href="#" class="mt-2 block text-gray-400 hover:text-white"
+              >Sign out</a
+            >
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+</template>
+
+<script>
+import AccountDropdown from '@/components/account/AccountDropdown.vue';
+
+export default {
+  components: {
+    AccountDropdown
+  },
+  data() {
+    return {
+      isOpen: false
+    };
+  }
+};
+</script>
+
+<style lang="postcss" scoped>
+.bg-gradient {
+  background-color: #d38312;
+}
+</style>
