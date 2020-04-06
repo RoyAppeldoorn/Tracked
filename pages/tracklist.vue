@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <div class="container mx-auto bg-white h-screen">
     <audio-widget v-if="isSoundcloudLoaded" />
   </div>
 </template>
 
 <script>
-import AudioWidget from '@/components/tracklist/AudioWidget.vue'
+import AudioWidget from '@/components/tracklist/AudioWidget.vue';
 
 export default {
   components: {
@@ -14,26 +14,26 @@ export default {
   data() {
     return {
       isSoundcloudLoaded: false
-    }
+    };
   },
+  layout: 'tracklist',
   head() {
     return {
       title: 'Payment Page - My awesome project', // Other meta information
       script: [
         {
           hid: 'soundcloud',
-          src: 'http://connect.soundcloud.com/sdk.js',
-          defer: true,
+          src: 'https://w.soundcloud.com/player/api.js',
           // Changed after script load
           callback: () => {
-            this.isSoundcloudLoaded = true
-            console.log('hoi')
+            this.isSoundcloudLoaded = true;
+            console.log('hoi');
           }
         }
       ]
-    }
+    };
   }
-}
+};
 </script>
 
 <style lang="scss" scoped></style>
