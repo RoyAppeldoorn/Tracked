@@ -16,7 +16,6 @@ export default {
       isSoundcloudLoaded: false
     };
   },
-  layout: 'tracklist',
   head() {
     return {
       title: 'Payment Page - My awesome project', // Other meta information
