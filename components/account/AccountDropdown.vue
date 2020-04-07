@@ -1,23 +1,23 @@
 <template>
   <div class="relative" @keydown.esc="isOpen = false">
     <button
-      class="relative z-10 block h-8 w-8 rounded-full overflow-hidden border-2 border-gray-500 focus:outline-none focus:border-white hover:border-white"
+      class="relative z-10 block h-12 w-12 rounded-full overflow-hidden border-2 border-gray-500 focus:outline-none focus:border-white hover:border-purple-400"
       @click="isOpen = !isOpen"
     >
       <img
         class="h-full w-full object-cover"
-        src="https://randomuser.me/api/portraits/women/55.jpg"
+        src="https://randomuser.me/api/portraits/lego/8.jpg"
       />
     </button>
-    <button
-      v-if="isOpen"
-      class="fixed inset-0 h-full w-full bg-black opacity-50 cursor-default"
-      tabindex="-1"
-      @click="isOpen = false"
-    ></button>
     <div
       v-if="isOpen"
-      class="absolute right-0 mt-2 py-2 w-48 bg-white rounded-lg shadow-xl"
+      class="fixed inset-0 h-full w-full bg-black opacity-50 cursor-default border-none z-10"
+      tabindex="-1"
+      @click="isOpen = false"
+    ></div>
+    <div
+      v-if="isOpen"
+      class="absolute right-0 mt-2 py-2 w-48 bg-white rounded-lg shadow-xl z-10"
     >
       <a
         href="#"
