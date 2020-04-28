@@ -35,7 +35,7 @@
           </div>
         </div>
         <div class="relative z-0">
-          <h1 class="font-display font-semibold text-6xl">
+          <h1 class="font-display font-semibold sm:text-6xl text-5xl">
             Discover tracklists you like
           </h1>
           <p class="text-2xl text-white">
@@ -50,14 +50,14 @@
       </div>
     </div>
     <div
-      class="rounded-lg overflow-hidden hidden sm:block shadow-2xl relative mx-auto w-3/4 -mb-16"
+      class="rounded-lg overflow-hidden hidden sm:block shadow-xl relative mx-auto w-3/4 sm:-mb-16"
     >
       <div class="lg:pb-1/3 md:pb-1/2 sm:pb-2/3">
         <img src="/hero-2.jpg" class="absolute w-full h-full object-cover" />
       </div>
     </div>
     <div class="bg-white">
-      <div class="container mx-auto px-8 pt-24 pb-16">
+      <div class="container mx-auto px-8 sm:pt-32 py-16">
         <div class="px-6 bg-white text-gray-900">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam enim
           sem, placerat id auctor ut, congue sed nisi. Maecenas fermentum libero
@@ -95,13 +95,5 @@ export default {};
   background: linear-gradient(hsl(302, 100%, 50%), hsl(29, 100%, 50%));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-.transform-right {
-  transform: translateX(100%);
-}
-
-.transform-left {
-  transform: translateX(-100%);
 }
 </style>

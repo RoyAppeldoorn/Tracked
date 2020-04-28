@@ -7,13 +7,10 @@
       scrolling="no"
       frameborder="no"
       allow="autoplay"
-      :src="
-        embed_url
-          ? embed_url
-          : `https://w.soundcloud.com/player/?url=https://soundcloud.com/1001tracklists/san-holo-exclusive-mix&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true`
-      "
+      :src="convertedSoundcloudEmbedUrl"
     >
     </iframe>
+
     <section class="flex items-center justify-center">
       <ul>
         <li><a class="track-link" href="">0:00</a> - Intro</li>
@@ -27,24 +24,18 @@
 </template>
 
 <script>
-import axios from 'axios';
-
 export default {
-  asyncData() {
-    return axios.get('http://localhost:8082/tracklist/1').then(response => {
-      // Note that you can't access the `this` instance inside asyncData
-      // this.products = response.data
-      // https://w.soundcloud.com/player/?url=https://soundcloud.com/1001tracklists/san-holo-exclusive-mix&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true
-
-      // eslint-disable-next-line camelcase
-      const embed_url = response.data.embed_url;
-      return { embed_url };
-    });
+  props: {
+    song: {
+      type: Object,
+      required: true
+    }
   },
-  data: () => ({
-    embed_url: null
-  }),
-  computed: {},
+  computed: {
+    convertedSoundcloudEmbedUrl() {
+      return `https://w.soundcloud.com/player/?url=${this.song.embed_url}`;
+    }
+  },
   mounted() {
     // Load embedded player
     const self = this;
@@ -88,6 +79,9 @@ export default {
       ms = hours * 3600000 + minutes * 60000 + seconds * 1000;
       return ms;
     }
+  },
+  convertSoundcloudLink(embedUrl) {
+    return `https://w.soundcloud.com/player/?url=${embedUrl}`;
   }
 };
 </script>
