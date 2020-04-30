@@ -1,23 +1,26 @@
 <template>
-  <header class="bg-secondary sm:py-3">
+  <header
+    class="bg-gray-900-spotify py-1 border-t-4 border-gradient-r-pink-purple shadow-sm"
+  >
     <div class="container mx-auto sm:flex sm:justify-between sm:items-center">
-      <div class="flex items-center justify-between px-4 py-3 sm:p-0">
+      <div class="flex items-center justify-between px-4 py-3">
         <div>
           <a href="/"
             ><img class="h-10" src="~/assets/logo_gradient.svg" alt="Tracked"
           /></a>
         </div>
-        <div class="ml-8 hidden sm:flex">
+        <!-- <div class="sm:ml-8 sm:flex">
           <nuxt-link
             to="/tracklist"
-            class="block px-2 py-1 text-gray-300 font-normal rounded hover:bg-gray-800"
+            class="block px-2 py-1 text-gray-500 font-semibold text-sm hover:text-purple-500"
             >Browse</nuxt-link
           >
-        </div>
+        </div> -->
         <div class="sm:hidden">
           <button
+            ref="menu"
             type="button"
-            class="block text-gray-500 hover:text-white focus:text-white focus:outline-none"
+            class="block text-gray-400 hover:text-white focus:text-white focus:outline-none"
             @click="isOpen = !isOpen"
           >
             <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
@@ -37,44 +40,39 @@
       </div>
 
       <nav :class="isOpen ? 'block' : 'hidden'" class="sm:block">
-        <div class="px-2 pt-2 pb-4 sm:flex sm:p-0 items-center">
+        <div class="sm:px-2 px-4 pt-2 pb-5 sm:py-0 sm:flex items-center">
           <nuxt-link
-            v-if="isOpen === true"
-            to="/tracklist/12"
-            class="block px-2 py-1 text-gray-300 font-normal rounded hover:bg-gray-800"
-            >Browse</nuxt-link
-          >
-          <nuxt-link
-            to="/tracklist/12"
-            class="block text-gray-300 md:border-2 md:border-purple-700 sm:border-0 hover:bg-purple-700 hover:text-white py-1 sm:px-4 px-2 sm:mr-8 sm:rounded"
+            to="/tracklist/add"
+            class="block sm:px-4 mt-2 sm:mt-0 font-medium text-sm hover:text-white"
             >Add a tracklist</nuxt-link
           >
           <nuxt-link
             to="/tracklist/12"
-            class="block px-2 py-1 text-gray-300 font-normal rounded hover:bg-gray-800"
+            class="block sm:px-4 mt-2 sm:mt-0 font-medium text-sm hover:text-white"
             >Tracklist</nuxt-link
           >
 
           <AccountDropdown class="hidden sm:block sm:ml-6" />
         </div>
 
-        <div class="px-4 py-5 border-t border-gray-800 sm:hidden">
+        <div class="mx-4 border-t border-gray-100 sm:hidden" />
+        <div class="px-4 py-5 sm:hidden">
           <div class="flex items-center">
             <img
               class="h-8 w-8 rounded-full border-2 border-gray-500"
               src="https://randomuser.me/api/portraits/women/55.jpg"
             />
-            <span class="ml-3 font-semibold text-white">Jane Doe</span>
+            <span class="ml-3 font-semibold">Jane Doe</span>
           </div>
 
           <div class="mt-4">
-            <a href="#" class="block text-gray-400 hover:text-white"
+            <a href="#" class="block font-medium text-sm hover:text-white"
               >Account settings</a
             >
-            <a href="#" class="mt-2 block text-gray-400 hover:text-white"
+            <a href="#" class="mt-2 block font-medium text-sm hover:text-white"
               >Support</a
             >
-            <a href="#" class="mt-2 block text-gray-400 hover:text-white"
+            <a href="#" class="mt-2 block font-medium text-sm hover:text-white"
               >Sign out</a
             >
           </div>
@@ -95,6 +93,21 @@ export default {
     return {
       isOpen: false
     };
+  },
+  mounted() {
+    document.addEventListener('click', this.documentClick);
+  },
+  destroyed() {
+    document.removeEventListener('click', this.documentClick);
+  },
+  methods: {
+    documentClick(e) {
+      const el = this.$refs.menu;
+      const target = e.target;
+      if (el !== target && !el.contains(target)) {
+        this.isOpen = false;
+      }
+    }
   }
 };
 </script>
