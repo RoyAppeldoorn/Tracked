@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="py-24 sm:py-64 overflow-x-hidden relative">
+    <div class="pb-64 pt-48 overflow-x-hidden relative">
       <div class="relative container mx-auto px-4 sm:px-0">
         <div role="presentation" class="absolute inset-0">
           <div
@@ -35,30 +35,35 @@
           </div>
         </div>
         <div class="relative z-0">
-          <h1 class="font-display font-semibold sm:text-6xl text-5xl">
+          <h1
+            class="font-display font-semibold sm:text-6xl text-5xl text-gray-200"
+          >
             Discover tracklists you like
           </h1>
-          <p class="text-2xl text-white">
+          <p class="text-2xl text-gray-200">
             A
-            <span class="text-purple-500 font-bold">better</span>
+            <span class="text-purple-300 font-bold">better</span>
             and
-            <span class="text-purple-500 font-bold">more simple</span>
+            <span class="text-purple-300 font-bold">more simple</span>
             alternative to 1001tracklist.
-            <span class="text-purple-500 font-bold italic">drops mic.</span>
+            <span class="text-purple-300 font-bold italic">drops mic.</span>
           </p>
         </div>
       </div>
     </div>
     <div
-      class="rounded-lg overflow-hidden hidden sm:block shadow-xl relative mx-auto w-3/4 sm:-mb-16"
+      class="rounded-full overflow-hidden hidden md:block relative mx-auto w-2/3 shadow-xl sm:-my-24"
     >
-      <div class="lg:pb-1/3 md:pb-1/2 sm:pb-2/3">
-        <img src="/hero-2.jpg" class="absolute w-full h-full object-cover" />
+      <div class="md:pb-1/2 lg:pb-1/3">
+        <img
+          src="~/assets/hero-2.jpg"
+          class="absolute w-full h-full object-cover"
+        />
       </div>
     </div>
-    <div class="bg-white">
-      <div class="container mx-auto px-8 sm:pt-32 py-16">
-        <div class="px-6 bg-white text-gray-900">
+    <div class="bg-gray-700">
+      <div class="container mx-auto px-8 md:pt-48 py-16">
+        <div class="px-6 text-gray-200">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam enim
           sem, placerat id auctor ut, congue sed nisi. Maecenas fermentum libero
           in diam aliquam lobortis. Nunc sit amet sapien sollicitudin, aliquam

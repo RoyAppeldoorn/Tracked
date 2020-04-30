@@ -1,5 +1,5 @@
 <template>
-  <div class="font-sans text-white">
+  <div>
     <Navbar />
     <nuxt />
   </div>
@@ -16,6 +16,6 @@ export default {
 
 <style lang="postcss">
 body {
-  @apply bg-primary;
+  @apply text-gray-200 font-body text-sm bg-gray-800;
 }
 </style>
