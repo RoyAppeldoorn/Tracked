@@ -7,17 +7,14 @@
     </div>
 
     <div class="container mx-auto relative">
-      <div
-        class="title-drawing text-8xl sm:text-11xl absolute hidden sm:block"
-        style="left: -20px"
-      >
+      <div class="title-drawing text-8xl sm:text-11xl absolute hidden sm:block">
         Explore
       </div>
       <section class="py-8 sm:py-64 flex justify-between">
         <div class="artist-display relative">
           <div class="flex mx-4">
             <div
-              class="image-icon h-16 w-16 sm:h-24 sm:w-24 rounded-full shadow-xl relative flex justify-center items-center sm:m-0 sm:mr-8 mt-4 mr-4"
+              class="image-icon hidden sm:block h-24 w-24 rounded-full shadow-xl relative flex justify-center items-center sm:m-0 sm:mr-8"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -31,7 +28,7 @@
                 />
               </svg>
             </div>
-            <div class="details">
+            <div class="details mb-4 sm:mb-0">
               <h1
                 class="text-4xl sm:text-5xl text-tracked-text font-semibold mb-4 tracking-wider"
               >
@@ -48,8 +45,8 @@
         </div>
       </section>
       <section>
-        <div class="p-8">
-          <div class="grid grid-cols-1 sm:grid-cols-4 gap-4 text-center">
+        <div class="mx-4 mb-4">
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
             <div class="bg-gray-600 py-8">1</div>
             <div class="bg-gray-600 py-8">1</div>
             <div class="bg-gray-600 py-8">1</div>
@@ -99,7 +96,7 @@ export default {};
 .title-drawing {
   font-family: 'Londrina Outline', cursive;
   top: 0;
-  left: -50px;
+  left: -20px;
   color: rgba(255, 255, 255, 0.2);
 }
 

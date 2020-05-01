@@ -1,6 +1,6 @@
 <template>
   <div class="bg-tracked-main pt-20">
-    <div class="pb-64 pt-48 overflow-x-hidden relative">
+    <div class="relative py-24 sm:pb-64 sm:pt-48 overflow-x-hidden ">
       <div class="relative container mx-auto px-4 sm:px-0">
         <div role="presentation" class="absolute inset-0">
           <div
@@ -54,7 +54,7 @@
     <div
       class="overflow-hidden hidden md:block relative mx-auto w-2/3 shadow-xl -mb-12"
     >
-      <div class="md:pb-1/2 lg:pb-1/2">
+      <div class="pb-2/5">
         <img
           src="~/assets/hero-2.jpg"
           class="absolute w-full h-full object-cover"
