@@ -15,7 +15,8 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
     "nuxt": "^2.0.0",
-    "tailwindcss-border-gradients": "^2.0.3"
+    "tailwindcss-border-gradients": "^2.0.3",
+    "tailwindcss-gradients": "^3.0.0"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^2.0.0",
