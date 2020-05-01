@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-(screen-16) overflow-x-hidden">
+  <div class="min-h-(screen-16) overflow-x-hidden pt-24">
     <div class="relative">
       <div
         class="circle circle-double w-24 h-24 sm:w-56 sm:h-56 rounded-full absolute"
