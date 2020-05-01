@@ -16,6 +16,6 @@ export default {
 
 <style lang="postcss">
 body {
-  @apply text-gray-200 font-body text-sm bg-gray-800;
+  @apply text-gray-100 font-body text-sm bg-tracked-main;
 }
 </style>
