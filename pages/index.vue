@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="bg-tracked-main">
     <div class="pb-64 pt-48 overflow-x-hidden relative">
       <div class="relative container mx-auto px-4 sm:px-0">
         <div role="presentation" class="absolute inset-0">
@@ -36,7 +36,7 @@
         </div>
         <div class="relative z-0">
           <h1
-            class="font-display font-semibold sm:text-6xl text-5xl text-gray-200"
+            class="font-display font-semibold sm:text-6xl text-5xl text-white"
           >
             Discover tracklists you like
           </h1>
@@ -52,17 +52,17 @@
       </div>
     </div>
     <div
-      class="rounded-full overflow-hidden hidden md:block relative mx-auto w-2/3 shadow-xl sm:-my-24"
+      class="overflow-hidden hidden md:block relative mx-auto w-2/3 shadow-xl -mb-12"
     >
-      <div class="md:pb-1/2 lg:pb-1/3">
+      <div class="md:pb-1/2 lg:pb-1/2">
         <img
           src="~/assets/hero-2.jpg"
           class="absolute w-full h-full object-cover"
         />
       </div>
     </div>
-    <div class="bg-gray-700">
-      <div class="container mx-auto px-8 md:pt-48 py-16">
+    <div class="bg-gradient-tr-pink-purple">
+      <div class="container mx-auto px-8 sm:px-0 py-16 sm:pt-24 sm:pb-16">
         <div class="px-6 text-gray-200">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam enim
           sem, placerat id auctor ut, congue sed nisi. Maecenas fermentum libero
