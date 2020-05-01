@@ -14,7 +14,15 @@ export default {
         content: process.env.npm_package_description || ''
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/logo_gradient.svg' }],
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/logo_gradient.svg' },
+      {
+        rel: 'stylesheet',
+        href:
+          'https://fonts.googleapis.com/css?family=Londrina+Outline&display=swap'
+      }
+    ],
+
     script: [{ src: 'https://w.soundcloud.com/player/api.js' }]
   },
   /*
