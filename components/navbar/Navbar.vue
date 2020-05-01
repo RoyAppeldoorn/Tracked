@@ -1,6 +1,6 @@
 <template>
   <header
-    class="bg-gray-900-spotify py-1 border-t-4 border-gradient-r-pink-purple shadow-sm"
+    class="navbar py-1 border-t-4 border-gradient-r-pink-purple shadow-sm relative"
   >
     <div class="container mx-auto sm:flex sm:justify-between sm:items-center">
       <div class="flex items-center justify-between px-4 py-3">
@@ -20,7 +20,7 @@
           <button
             ref="menu"
             type="button"
-            class="block text-gray-400 hover:text-white focus:text-white focus:outline-none"
+            class="block text-gray-300 hover:text-white focus:text-white focus:outline-none"
             @click="isOpen = !isOpen"
           >
             <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
@@ -42,9 +42,9 @@
       <nav :class="isOpen ? 'block' : 'hidden'" class="sm:block">
         <div class="sm:px-2 px-4 pt-2 pb-5 sm:py-0 sm:flex items-center">
           <nuxt-link
-            to="/tracklist/add"
+            to="/explore"
             class="block sm:px-4 mt-2 sm:mt-0 font-medium text-sm hover:text-white"
-            >Add a tracklist</nuxt-link
+            >Explore</nuxt-link
           >
           <nuxt-link
             to="/tracklist/12"
@@ -55,7 +55,7 @@
           <AccountDropdown class="hidden sm:block sm:ml-6" />
         </div>
 
-        <div class="mx-4 border-t border-gray-100 sm:hidden" />
+        <div class="mx-4 border-t border-white opacity-25 sm:hidden" />
         <div class="px-4 py-5 sm:hidden">
           <div class="flex items-center">
             <img
