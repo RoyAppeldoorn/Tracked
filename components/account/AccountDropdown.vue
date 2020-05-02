@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import OnClickOutside from './OnClickOutside.vue';
+import OnClickOutside from './OnClickOutside.vue'
 
 export default {
   components: {
@@ -44,16 +44,16 @@ export default {
   data() {
     return {
       isOpen: false
-    };
+    }
   },
   methods: {
     handleClickOutside() {
       if (this.isOpen) {
-        this.isOpen = false;
+        this.isOpen = false
       }
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped></style>

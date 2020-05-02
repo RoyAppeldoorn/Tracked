@@ -12,7 +12,7 @@
                 class="h-10"
                 src="~/assets/logo_gradient.svg"
                 alt="Tracked"
-              >
+              />
             </a>
           </div>
 
@@ -74,7 +74,7 @@
               <img
                 class="h-8 w-8 rounded-full border-2 border-gray-500"
                 src="https://randomuser.me/api/portraits/women/55.jpg"
-              >
+              />
               <span class="ml-3 font-semibold">Jane Doe</span>
             </div>
             <div class="mt-4">
@@ -125,19 +125,19 @@ import AccountDropdown from '@/components/account/AccountDropdown.vue'
 
 export default {
   components: { AccountDropdown },
-  data () {
+  data() {
     return {
       isOpen: false
     }
   },
-  mounted () {
+  mounted() {
     document.addEventListener('click', this.documentClick)
   },
-  destroyed () {
+  destroyed() {
     document.removeEventListener('click', this.documentClick)
   },
   methods: {
-    documentClick (e) {
+    documentClick(e) {
       const el = this.$refs.menu
       const target = e.target
       if (el !== target && !el.contains(target)) {
