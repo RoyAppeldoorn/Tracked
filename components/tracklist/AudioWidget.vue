@@ -1,14 +1,6 @@
 <template>
   <div>
-    <iframe
-      id="sc-widget"
-      width="100%"
-      height="166"
-      scrolling="no"
-      frameborder="no"
-      allow="autoplay"
-      :src="convertedSoundcloudEmbedUrl"
-    />
+    <iframe id="sc-widget" width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" :src="convertedSoundcloudEmbedUrl" />
 
     <section class="flex items-center justify-center">
       <ul>
