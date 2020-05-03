@@ -5,7 +5,7 @@
  ** Default: https://github.com/tailwindcss/tailwindcss/blob/master/stubs/defaultConfig.stub.js
  */
 
-const { colors } = require('tailwindcss/defaultTheme');
+const { colors } = require('tailwindcss/defaultTheme')
 
 module.exports = {
   theme: {
@@ -43,7 +43,9 @@ module.exports = {
           main: '#101123',
           secondary: '#C80498',
           accent: '#810590',
-          text: '#E4E4E4'
+          text: '#E4E4E4',
+          pink: '#EA00FF',
+          purple: '#6A00FF'
         },
         purple: {
           '100': '#EECCFF',
@@ -180,15 +182,9 @@ module.exports = {
         red: '#f00',
         'red-blue': ['#f00', '#00f'],
         'red-green-blue': ['#f00', '#0f0', '#00f'],
-        checkerboard: [
-          'white 90deg',
-          'black 90deg 180deg',
-          'white 180deg 270deg',
-          'black 270deg'
-        ]
+        checkerboard: ['white 90deg', 'black 90deg 180deg', 'white 180deg 270deg', 'black 270deg']
       },
-      repeatingLinearGradientDirections: theme =>
-        theme('linearGradientDirections'), // defaults to this value
+      repeatingLinearGradientDirections: theme => theme('linearGradientDirections'), // defaults to this value
       repeatingLinearGradientColors: theme => theme('linearGradientColors'), // defaults to {}
       repeatingLinearGradientLengths: {
         // defaults to {}
@@ -201,8 +197,7 @@ module.exports = {
         // defaults to this value
         default: 'farthest-corner'
       },
-      repeatingRadialGradientPositions: theme =>
-        theme('radialGradientPositions'), // defaults to this value
+      repeatingRadialGradientPositions: theme => theme('radialGradientPositions'), // defaults to this value
       repeatingRadialGradientColors: theme => theme('radialGradientColors'), // defaults to {}
       repeatingRadialGradientLengths: {
         // defaults to {}
@@ -210,8 +205,7 @@ module.exports = {
         md: '50px',
         lg: '100px'
       },
-      repeatingConicGradientStartingAngles: theme =>
-        theme('conicGradientStartingAngles'), // defaults to this value
+      repeatingConicGradientStartingAngles: theme => theme('conicGradientStartingAngles'), // defaults to this value
       repeatingConicGradientPositions: theme => theme('conicGradientPositions'), // defaults to this value
       repeatingConicGradientColors: {
         // defaults to {}
@@ -230,18 +224,16 @@ module.exports = {
   },
   variants: {
     textColor: ['responsive', 'hover', 'focus', 'group-hover'],
-    linearBorderGradients: ['responsive'], // defaults to ['responsive']
-    repeatingLinearBorderGradients: ['responsive'], // defaults to ['responsive']
+    borderRadius: ['responsive', 'hover', 'focus'],
+    linearBorderGradients: ['responsive', 'hover', 'group-hover', 'focus'], // defaults to ['responsive']
+    repeatingLinearBorderGradients: ['responsive', 'hover', 'group-hover', 'focus'], // defaults to ['responsive']
     backgroundImage: ['responsive'], // this is for the "bg-none" utility
-    linearGradients: ['responsive'],
+    linearGradients: ['responsive', 'hover', 'group-hover', 'focus'],
     radialGradients: ['responsive'],
     conicGradients: ['responsive'],
     repeatingLinearGradients: ['responsive'],
     repeatingRadialGradients: ['responsive'],
     repeatingConicGradients: ['responsive']
   },
-  plugins: [
-    require('tailwindcss-gradients'),
-    require('tailwindcss-border-gradients')()
-  ]
-};
+  plugins: [require('tailwindcss-gradients'), require('tailwindcss-border-gradients')()]
+}
