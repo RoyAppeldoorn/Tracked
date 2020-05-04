@@ -1,5 +1,5 @@
 <template>
-  <div class="overflow-x-hidden pt-20">
+  <div class="overflow-x-hidden">
     <div class="relative">
       <div class="circle circle-double w-24 h-24 sm:w-56 sm:h-56 rounded-full absolute" />
     </div>

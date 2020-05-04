@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-tracked-main pt-20">
+  <div class="bg-tracked-main">
     <div class="relative py-24 sm:pb-64 sm:pt-48 overflow-x-hidden ">
       <div class="relative container mx-auto px-4 sm:px-0">
         <div role="presentation" class="absolute inset-0">
