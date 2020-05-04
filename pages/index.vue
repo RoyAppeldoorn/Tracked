@@ -41,7 +41,7 @@
     </div>
     <div class="overflow-hidden hidden md:block relative mx-auto w-2/3 shadow-xl -mb-12">
       <div class="pb-2/5">
-        <img src="~/assets/hero-2.jpg" class="absolute w-full h-full object-cover" />
+        <img :src="require('~/assets/hero-2.jpg')" class="absolute w-full h-full object-cover" rel="preload" />
       </div>
     </div>
     <div class="bg-gradient-tr-pink-purple">
