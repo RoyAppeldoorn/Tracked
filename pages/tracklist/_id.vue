@@ -1,5 +1,5 @@
 <template>
-  <div class="pt-20">
+  <div>
     <AudioWidget :song="song" />
   </div>
 </template>
