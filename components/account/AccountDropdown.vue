@@ -5,13 +5,13 @@
         <img class="h-full w-full object-cover" src="https://randomuser.me/api/portraits/lego/8.jpg" />
       </button>
       <div v-if="isOpen" class="absolute right-0 mt-2 py-2 w-48 bg-white rounded-lg shadow-xl z-20">
-        <a href="#" class="block px-4 py-2 text-gray-600 font-medium text-sm hover:bg-purple-500 hover:text-white">
+        <a href="#" class="block px-4 py-2 text-gray-600 font-medium text-sm hover:bg-tracked-purple hover:text-white">
           Account settings
         </a>
-        <a href="#" class="block px-4 py-2 text-gray-600 font-medium text-sm hover:bg-purple-500 hover:text-white">
+        <a href="#" class="block px-4 py-2 text-gray-600 font-medium text-sm hover:bg-tracked-purple hover:text-white">
           Support
         </a>
-        <a href="#" class="block px-4 py-2 text-gray-600 font-medium text-sm hover:bg-purple-500 hover:text-white">
+        <a href="#" class="block px-4 py-2 text-gray-600 font-medium text-sm hover:bg-tracked-purple hover:text-white">
           Sign out
         </a>
       </div>
