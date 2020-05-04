@@ -6,7 +6,7 @@
         <div class="flex items-center">
           <div>
             <nuxt-link to="/">
-              <img class="h-10 mr-10" src="~/assets/logo_gradient.svg" alt="Tracked" />
+              <img class="h-10 mr-8 sm:mr-10" src="~/assets/logo_gradient.svg" alt="Tracked" />
             </nuxt-link>
           </div>
 
@@ -39,20 +39,20 @@
 
         <nav :class="isOpen ? 'block' : 'hidden'" class="sm:block">
           <div class="sm:p-0 sm:px-4 py-5 sm:flex items-center">
-            <nuxt-link to="/explore" class="flex sm:mx-4 mt-2 sm:mt-0 font-medium text-sm hover:text-white group">
+            <nuxt-link to="/explore" class="flex sm:mx-4 mt-3 sm:mt-0 font-medium text-sm hover:text-white group">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="fill-current text-gray-100 h-6 w-6">
                 <path d="M14 10h2a1 1 0 01.81 1.58l-5 7A1 1 0 0110 18v-4H8a1 1 0 01-.81-1.58l5-7A1 1 0 0114 6v4z" />
               </svg>
               <span class="ml-2 block group-hover:text-white">Explore</span>
             </nuxt-link>
-            <nuxt-link to="/tracklist/12" class="flex sm:mx-4 mt-2 sm:mt-0 font-medium text-sm hover:text-white group">
+            <nuxt-link to="/tracklist/12" class="flex sm:mx-4 mt-3 sm:mt-0 font-medium text-sm hover:text-white group">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="fill-current text-gray-100 h-6 w-6">
                 <path d="M22 17a1 1 0 01-2 0v-5a8 8 0 10-16 0v5a1 1 0 01-2 0v-5a10 10 0 1120 0v5z" />
                 <path d="M7 12a2 2 0 012 2v6a2 2 0 11-4 0v-6c0-1.1.9-2 2-2zm10 0a2 2 0 012 2v6a2 2 0 11-4 0v-6c0-1.1.9-2 2-2z" />
               </svg>
               <span class="ml-2 block group-hover:text-white">Tracklists</span>
             </nuxt-link>
-            <nuxt-link to="/tracklist/add" class="flex sm:mx-4 mt-2 sm:mt-0 font-medium text-sm hover:text-white group bg-transparent hover:bg-gradient-bl-pink-purple font-semibold py-2 px-4 border border-gradient-bl-pink-purple rounded">
+            <nuxt-link to="/tracklist/add" class="flex sm:mx-4 mt-3 sm:mt-0 font-medium text-sm hover:text-white group bg-transparent sm:hover:bg-gradient-bl-pink-purple font-medium sm:font-semibold sm:py-2 sm:px-4 sm:border sm:border-gradient-bl-pink-purple">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="fill-current text-gray-100 h-6 w-6">
                 <path d="M13 11h4a1 1 0 010 2h-4v4a1 1 0 01-2 0v-4H7a1 1 0 010-2h4V7a1 1 0 012 0v4z" />
               </svg>
@@ -70,10 +70,10 @@
               <a href="#" class="block font-medium text-sm hover:text-white">
                 Account settings
               </a>
-              <a href="#" class="mt-2 block font-medium text-sm hover:text-white">
+              <a href="#" class="mt-3 block font-medium text-sm hover:text-white">
                 Support
               </a>
-              <a href="#" class="mt-2 block font-medium text-sm hover:text-white">
+              <a href="#" class="mt-3 block font-medium text-sm hover:text-white">
                 Sign out
               </a>
             </div>
