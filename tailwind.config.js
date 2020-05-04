@@ -10,6 +10,10 @@ const { colors } = require('tailwindcss/defaultTheme')
 module.exports = {
   theme: {
     extend: {
+      padding: {
+        navbar: '5.25rem',
+        'navbar-sm': '4.75rem'
+      },
       fontFamily: {
         body: ['Inter', 'sans-serif'],
         display: ['Inter', 'sans-serif']
@@ -47,22 +51,16 @@ module.exports = {
           pink: '#EA00FF',
           purple: '#6A00FF'
         },
-        purple: {
-          '100': '#EECCFF',
-          '200': '#DC99FF',
-          '300': '#CB66FF',
-          '400': '#BA33FF',
-          '500': '#A901FF',
-          '600': '#8700CC',
-          '700': '#650099',
-          '800': '#430066',
-          '900': '#220033'
-        },
         gray: {
           ...colors.gray,
           '700': '#282828',
           '800': '#181818',
           '900': '#121212'
+        },
+        teal: {
+          ...colors.teal,
+          '400': '#65D6AD',
+          '900': '#014D40'
         }
       },
       spacing: {
