@@ -18,11 +18,9 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/logo_gradient.svg' },
       {
         rel: 'stylesheet',
-        href:
-          'https://fonts.googleapis.com/css?family=Londrina+Outline&display=swap'
+        href: 'https://fonts.googleapis.com/css?family=Londrina+Outline&display=swap'
       }
     ],
-
     script: [{ src: 'https://w.soundcloud.com/player/api.js' }]
   },
   /*
@@ -67,4 +65,4 @@ export default {
      */
     extend(config, ctx) {}
   }
-};
+}
