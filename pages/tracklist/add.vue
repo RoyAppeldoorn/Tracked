@@ -61,7 +61,7 @@
         <div class="flex flex-wrap -mx-3 mb-4">
           <div class="w-full pb-4 px-3 justify-center">
             <div class="flex flex-col text-xs text-center">
-              <div class="flex justify-center items-start sm:items-center">
+              <div class="flex justify-center items-start sm:items-end">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sm:w-6 w-10">
                   <path class="fill-current bg-gray-200" d="M11 12a1 1 0 010-2h2a1 1 0 01.96 1.27L12.33 17H13a1 1 0 010 2h-2a1 1 0 01-.96-1.27L11.67 12H11zm2-4a1.5 1.5 0 110-3 1.5 1.5 0 010 3z" />
                 </svg>
@@ -78,7 +78,7 @@
             <input id="grid-first-name" class="appearance-none block w-full bg-gray-200 text-gray-700 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" type="text" placeholder="Please paste a valid soundcloud url" />
           </div>
         </div>
-        <div class="flex justify-around pb-12">
+        <div class="flex justify-center pb-12 sm:py-12">
           <button class="bg-teal-400 hover:bg-teal-300 text-gray-800 font-bold py-2 px-4 rounded flex items-center content-center">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="fill-current w-8 text-teal-900">
               <path class="secondary" d="M9.53 16.93a1 1 0 01-1.45-1.05l.47-2.76-2-1.95a1 1 0 01.55-1.7l2.77-.4 1.23-2.51a1 1 0 011.8 0l1.23 2.5 2.77.4a1 1 0 01.55 1.71l-2 1.95.47 2.76a1 1 0 01-1.45 1.05L12 15.63l-2.47 1.3z" />
