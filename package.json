@@ -13,7 +13,9 @@
     "test": "jest"
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.3.6",
+    "@nuxtjs/axios": "^5.10.3",
+    "@nuxtjs/firebase": "^5.2.0",
+    "firebase": "^7.14.4",
     "nuxt": "^2.0.0",
     "tailwindcss-border-gradients": "^2.0.3",
     "tailwindcss-gradients": "^3.0.0"
@@ -27,6 +29,7 @@
     "babel-jest": "^24.1.0",
     "eslint": "^6.1.0",
     "eslint-config-prettier": "^6.10.1",
+    "eslint-loader": "^4.0.2",
     "eslint-plugin-nuxt": ">=0.4.2",
     "eslint-plugin-prettier": "^3.1.2",
     "jest": "^24.1.0",

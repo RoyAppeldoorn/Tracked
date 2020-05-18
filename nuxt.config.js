@@ -49,7 +49,24 @@ export default {
    */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    [
+      '@nuxtjs/firebase',
+      {
+        config: {
+          apiKey: 'AIzaSyDb6ktzrQEybcxcz12EyMORPURZxHoDkJc',
+          authDomain: 'tracked-8e216.firebaseapp.com',
+          databaseURL: 'https://tracked-8e216.firebaseio.com',
+          projectId: 'tracked-8e216',
+          storageBucket: 'tracked-8e216.appspot.com',
+          messagingSenderId: '585247816189',
+          appId: '1:585247816189:web:9812c90c70bc57d7d1c194'
+        },
+        services: {
+          auth: true // Just as example. Can be any other service.
+        }
+      }
+    ]
   ],
   /*
    ** Axios module configuration

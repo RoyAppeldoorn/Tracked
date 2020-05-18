@@ -4,29 +4,29 @@
       <h1 class="text-2xl font-light pb-4">Upload</h1>
       <div class="border-t border-white opacity-25 pb-4" />
       <div class="grid grid-cols-3 gap-4 text-center">
-        <div class="item border-2 border-gradient-tr-pink-purple py-8 px-1">
+        <div class="item border-2 border-gradient-tr-pink-purple py-8 px-2">
           <div class="flex flex-col items-center">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="text-gray-100 fill-current w-10">
               <path class="primary" d="M4 14a1 1 0 01.3-.7l11-11a1 1 0 011.4 0l3 3a1 1 0 010 1.4l-11 11a1 1 0 01-.7.3H5a1 1 0 01-1-1v-3z" />
-              <rect width="20" height="2" x="2" y="20" class="secondary" rx="1" />
+              <rect width="20" height="2" x="2" y="20" rx="1" />
             </svg>
           </div>
           <div class="tracking-wide uppercase text-xs font-bold pt-4">Give it a name</div>
         </div>
-        <div class="item border-2 border-gradient-tl-pink-purple py-8 px-1">
+        <div class="item border-2 border-gradient-tl-pink-purple py-8 px-2">
           <div class="flex flex-col items-center">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="text-gray-100 fill-current w-10">
-              <circle cx="12" cy="12" r="10" class="fill-current text-tracked-purple" />
-              <path class="secondary" d="M10 14.59l6.3-6.3a1 1 0 011.4 1.42l-7 7a1 1 0 01-1.4 0l-3-3a1 1 0 011.4-1.42l2.3 2.3z" />
+              <circle cx="12" cy="12" r="10" />
+              <path class="fill-current text-tracked-background opacity-100" d="M10 14.59l6.3-6.3a1 1 0 011.4 1.42l-7 7a1 1 0 01-1.4 0l-3-3a1 1 0 011.4-1.42l2.3 2.3z" />
             </svg>
             <div class="tracking-wide uppercase text-xs font-bold pt-4">Hit enter</div>
           </div>
         </div>
-        <div class="item border-2 border-gradient-br-pink-purple py-8 px-1">
+        <div class="item border-2 border-gradient-br-pink-purple py-8 px-2">
           <div class="flex flex-col items-center">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="text-gray-100 fill-current w-10">
-              <path class="fill-current text-tracked-pink" d="M6.59 16H3a1 1 0 01-1-1V9a1 1 0 011-1h3.59l4.7-4.7A1 1 0 0113 4v16a1 1 0 01-1.7.7L6.58 16z" />
-              <path class="fill-current text-tracked-pink" d="M17.66 6.34a1 1 0 011.41-1.41 10 10 0 010 14.14 1 1 0 01-1.41-1.41 8 8 0 000-11.32zm-2.83 2.83a1 1 0 111.41-1.41 6 6 0 010 8.48 1 1 0 01-1.41-1.41 4 4 0 000-5.66z" />
+              <path d="M6.59 16H3a1 1 0 01-1-1V9a1 1 0 011-1h3.59l4.7-4.7A1 1 0 0113 4v16a1 1 0 01-1.7.7L6.58 16z" />
+              <path d="M17.66 6.34a1 1 0 011.41-1.41 10 10 0 010 14.14 1 1 0 01-1.41-1.41 8 8 0 000-11.32zm-2.83 2.83a1 1 0 111.41-1.41 6 6 0 010 8.48 1 1 0 01-1.41-1.41 4 4 0 000-5.66z" />
             </svg>
             <div class="tracking-wide uppercase text-xs font-bold pt-4">Add a tracklist</div>
           </div>
@@ -97,6 +97,6 @@ export default {}
 
 <style lang="postcss" scoped>
 .item {
-  background: rgba(46, 52, 73, 0.4);
+  @apply bg-tracked-background;
 }
 </style>
