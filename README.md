@@ -1,6 +1,6 @@
-# tracked
+# Tracked
 
-> My luminous Nuxt.js project
+> My luminous Nuxt.js project, a better alternative to https://www.1001tracklists.com/
 
 ## Build Setup
 
