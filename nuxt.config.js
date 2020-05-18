@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 export default {
   mode: 'universal',
   /*
@@ -42,7 +44,8 @@ export default {
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
+    '@nuxtjs/dotenv'
   ],
   /*
    ** Nuxt.js modules
@@ -54,13 +57,13 @@ export default {
       '@nuxtjs/firebase',
       {
         config: {
-          apiKey: 'AIzaSyDb6ktzrQEybcxcz12EyMORPURZxHoDkJc',
-          authDomain: 'tracked-8e216.firebaseapp.com',
-          databaseURL: 'https://tracked-8e216.firebaseio.com',
-          projectId: 'tracked-8e216',
-          storageBucket: 'tracked-8e216.appspot.com',
-          messagingSenderId: '585247816189',
-          appId: '1:585247816189:web:9812c90c70bc57d7d1c194'
+          apiKey: process.env.API_KEY,
+          authDomain: process.env.AUTH_DOMAIN,
+          databaseURL: process.env.DATABASE_URL,
+          projectId: process.env.PROJECT_ID,
+          storageBucket: process.env.STORAGE_BUCKET,
+          messagingSenderId: process.env.MESSAGING_SENDER_ID,
+          appId: process.env.APP_ID
         },
         services: {
           auth: true // Just as example. Can be any other service.
