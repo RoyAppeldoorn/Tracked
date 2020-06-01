@@ -61,7 +61,7 @@
             <div class="relative">
               <select id="genre" v-model="genre" name="genre" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 mb-3 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                 <option selected disabled hidden>Select genre</option>
-                <option v-for="musicGenre in genres" :key="musicGenre.id" :value="musicGenre">{{ musicGenre.genre }}</option>
+                <option v-for="musicGenre in genres" :key="musicGenre.id" :value="musicGenre">{{ musicGenre.name }}</option>
               </select>
               <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                 <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
@@ -113,7 +113,7 @@ export default {
         return { genres: res.data }
       })
       .catch(e => {
-        error({ statusCode: 404, message: 'Post not found' })
+        console.log(e)
       })
   },
   data() {
@@ -136,7 +136,7 @@ export default {
           user: 'eyJhbGciOiJSUzI1NiIsImtpZCI6IjgyMmM1NDk4YTcwYjc0MjQ5NzI2ZDhmYjYxODlkZWI3NGMzNWM4MGEiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vdHJhY2tlZC04ZTIxNiIsImF1ZCI6InRyYWNrZWQtOGUyMTYiLCJhdXRoX3RpbWUiOjE1OTA4NDU2MjEsInVzZXJfaWQiOiJHekljNWRJTlZCYzlldVY2ejQ4YXZVOU5QcWoyIiwic3ViIjoiR3pJYzVkSU5WQmM5ZXVWNno0OGF2VTlOUHFqMiIsImlhdCI6MTU5MDg0NTYyMSwiZXhwIjoxNTkwODQ5MjIxLCJlbWFpbCI6InJveS5hcHBlbGRvb3JuQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJlbWFpbCI6WyJyb3kuYXBwZWxkb29ybkBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.PFk5_xVY-pkc4gjuJimmQKOtd4VOxa2p7QUMTOe71rcCJ4F-Lg-A8aXnDh_P8159PtUhSjmFTp-QtikvI8VRKD6OXgtlrJJUBqM-PTW04oG7e3x6s3O7ATM57RraLW0X9mcFdiYSTGWZomyPAlOsV8DnSf580SRC5iwID83Q8KzkJTaOSykmLKWZ7DX7Sscqt2v0TfpGwRPE04iEwgBg2vaqiw8OUN2wW6NfkAxhH7oU_dSoXzFYlVak0bkVf9RudgxEeYm8Dfxps0Q7uFBh_WW8qMyPIesWIlH9EUoPKFN_LpqpXD2u2mXBLn5-tILiw4McXHDNipfXIyo7CBWM3w'
         }
 
-        this.login(tracklist)
+        this.createNewTracklist(tracklist)
       }
 
       this.errors = []
@@ -155,7 +155,7 @@ export default {
 
       e.preventDefault()
     },
-    login(formData) {
+    createNewTracklist(formData) {
       this.createTracklist(formData)
     },
     hidePopup() {

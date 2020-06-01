@@ -22,24 +22,25 @@ export const actions = {
     await this.$fireAuth.signOut()
     this.$router.push('/')
   },
-  async onAuthStateChanged({ commit, dispatch }, { authUser, claims }) {
-    // eslint-disable-next-line no-console
+  async onAuthStateChanged({ commit }, { authUser, claims }) {
     if (!authUser) {
       // eslint-disable-next-line no-console
-      console.log('not logged in')
-    } else {
-      try {
-        const token = await this.$fireAuth.currentUser.getIdToken(true)
-        this.$axios.defaults.headers.common['X-Firebase-Auth'] = token
-
-        const { uid, email } = authUser
-        commit('SET_USER', { uid, email })
-      } catch (error) {
-        // eslint-disable-next-line no-console
-        console.log(error)
-      }
+      console.log('Not authenticated')
+      return
     }
+
+    const token = await this.$fireAuth.currentUser.getIdToken(true)
+
+    const { uid, email } = authUser
+    commit('SET_USER', { uid, email, token })
+    console.log('Authenticated with idToken ' + token)
   }
 }
 
-export const getters = {}
+export const getters = {
+  getToken: state => {
+    if (state.user) {
+      return state.user.token ? state.user.token : null
+    }
+  }
+}
