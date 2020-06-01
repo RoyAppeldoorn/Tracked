@@ -81,7 +81,12 @@ export default {
    */
   axios: {
     baseUrl: process.env.API_URL || 'http://localhost:8082'
+    // proxy: true
   },
+
+  // proxy: {
+  //   '/api/': 'http://localhost:8082'
+  // },
   /*
    ** Build configuration
    */
