@@ -1,49 +1,53 @@
 <template>
   <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col">
-    <div class="mb-4">
-      <label class="block text-grey-darker text-sm font-bold mb-2" for="username">
-        Username
-      </label>
-      <input id="username" class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" type="text" placeholder="Username" />
-    </div>
-    <div class="mb-6">
-      <label class="block text-grey-darker text-sm font-bold mb-2" for="password">
-        Password
-      </label>
-      <input id="password" class="shadow appearance-none border border-red rounded w-full py-2 px-3 text-grey-darker mb-3" type="password" placeholder="******************" />
-      <p class="text-red text-xs italic">Please choose a password.</p>
-    </div>
-    <div class="flex items-center justify-between">
-      <button class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded" type="button">
-        Sign In
-      </button>
-      <a class="inline-block align-baseline font-bold text-sm text-blue hover:text-blue-darker" href="#">
-        Forgot Password?
-      </a>
-    </div>
+    <form @submit.prevent="attemptLogin" @submit.enter="attemptLogin">
+      <div class="form-group">
+        <input id="nuxtfire-email" v-model="account.email" type="email" class="form-control" placeholder="E-mail address" />
+      </div>
+
+      <div class="form-group">
+        <input id="nuxtfire-password" v-model="account.password" type="password" class="form-control" placeholder="Password" />
+      </div>
+
+      <div class="form-group">
+        <input type="submit" class="btn btn-primary" @click="attemptLogin" />
+      </div>
+      <div v-if="isError" class="alert alert-danger">
+        <p class="mb-0">{{ errMsg }}</p>
+      </div>
+    </form>
   </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
   data() {
     return {
-      email: null,
-      password: null
+      account: {
+        email: null,
+        password: null
+      },
+      isError: false,
+      errorMsg: ''
     }
   },
-  async mounted() {
-    await this.$fireAuth
-      .signInWithEmailAndPassword('roy.appeldoorn@gmail.com', 'ererer')
-      .then(response => {
-        this.$fireAuth.currentUser.getIdToken(true).then(idToken => {
-          console.log(idToken)
+  methods: {
+    ...mapActions('user', ['login']),
+    attemptLogin() {
+      this.login(this.account)
+        .then(() => {
+          this.$router.push('/')
         })
-      })
-      .catch(error => {
-        // eslint-disable-next-line no-console
-        console.log(error)
-      })
+        .catch(error => {
+          this.isError = true
+          this.errMsg = error.code
+          setTimeout(() => {
+            this.isError = false
+          }, 5000)
+        })
+    }
   }
 }
 </script>

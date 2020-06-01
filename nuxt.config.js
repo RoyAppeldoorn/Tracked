@@ -66,7 +66,11 @@ export default {
           appId: process.env.APP_ID
         },
         services: {
-          auth: true // Just as example. Can be any other service.
+          auth: {
+            initialize: {
+              onAuthStateChangedAction: 'user/onAuthStateChanged'
+            }
+          }
         }
       }
     ]
@@ -75,7 +79,9 @@ export default {
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {},
+  axios: {
+    baseUrl: process.env.API_URL || 'http://localhost:8082'
+  },
   /*
    ** Build configuration
    */
