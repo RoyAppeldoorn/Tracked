@@ -46,7 +46,6 @@ export default {
   methods: {
     ...mapActions('user', ['register']),
     registerUser(e) {
-      console.log(this.account)
       this.register(this.account)
       e.preventDefault()
     }
