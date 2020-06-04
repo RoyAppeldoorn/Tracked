@@ -19,7 +19,8 @@
     "firebase": "^7.14.4",
     "nuxt": "^2.0.0",
     "tailwindcss-border-gradients": "^2.0.3",
-    "tailwindcss-gradients": "^3.0.0"
+    "tailwindcss-gradients": "^3.0.0",
+    "vuex-persist": "^2.2.0"
   },
   "devDependencies": {
     "@nuxtjs/dotenv": "^1.4.1",
