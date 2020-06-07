@@ -1,5 +1,14 @@
 require('dotenv').config()
 
+const routerBase =
+  process.env.DEPLOY_ENV === 'GH_PAGES'
+    ? {
+        router: {
+          base: '/tracked/'
+        }
+      }
+    : {}
+
 export default {
   mode: 'universal',
   /*
@@ -25,6 +34,7 @@ export default {
     ],
     script: [{ src: 'https://w.soundcloud.com/player/api.js' }]
   },
+  ...routerBase,
   /*
    ** Customize the progress-bar color
    */
