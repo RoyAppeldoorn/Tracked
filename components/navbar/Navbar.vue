@@ -83,7 +83,7 @@
                 <a href="#" class="mt-3 block font-medium text-sm hover:text-white">
                   Support
                 </a>
-                <button class="mt-3 block font-medium text-sm hover:text-white" @click="attemptLogout">
+                <button id="sign-out-button" class="mt-3 block font-medium text-sm hover:text-white" @click="attemptLogout()">
                   Sign out
                 </button>
               </div>
