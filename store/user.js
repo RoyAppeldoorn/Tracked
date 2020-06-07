@@ -1,27 +1,50 @@
 export const state = () => ({
-  user: null
+  user: null,
+  error: null
 })
 
 export const mutations = {
-  SET_USER(state, account) {
-    state.user = account
+  SET_USER(state, user) {
+    if (state.user == null) {
+      state.user = user
+    } else {
+      Object.assign(state.user, user)
+    }
+  },
+  SET_AUTH_TOKEN(state, token) {
+    state.user = { ...state.user, token }
+  },
+  SET_ERROR(state, payload) {
+    state.error = payload
   }
 }
 
 export const actions = {
-  async login({ commit }, account) {
-    try {
-      // login the user
-      await this.$fireAuth.signInWithEmailAndPassword(account.email, account.password)
-    } catch (error) {
-      // eslint-disable-next-line no-console
-      console.log(error)
-    }
+  login({ commit }, account) {
+    // login the user
+    this.$fireAuth
+      .signInWithEmailAndPassword(account.email, account.password)
+      .then(() => {
+        this.$fireAuth.currentUser
+          .getIdToken(true)
+          .then(token => {
+            commit('SET_AUTH_TOKEN', token)
+          })
+          .catch(error => console.log(error))
+      })
+      .catch(error => {
+        // eslint-disable-next-line no-console
+        console.log(error)
+      })
   },
   async logout() {
     try {
+      if (process.client) {
+        window.localStorage.removeItem('vuex')
+      }
+
       await this.$fireAuth.signOut()
-      this.$router.push('/')
+      this.$router.push('/login')
     } catch (error) {
       alert('Something went wrong.. please try again')
     }
@@ -30,48 +53,49 @@ export const actions = {
     this.$fireAuth
       .createUserWithEmailAndPassword(account.email, account.password)
       .then(() => {
-        this.$axios
-          .post('/auth/register', { nickname: account.nickname })
-          .then(() => {
-            console.log('good')
-            this.$router.go(-1)
+        this.$fireAuth.currentUser
+          .getIdToken(true)
+          .then(token => {
+            commit('SET_AUTH_TOKEN', token)
+
+            this.$axios
+              .post('/auth/register', { nickname: account.nickname })
+              .then(() => {
+                this.$router.push('/')
+              })
+              .catch(error => {
+                console.log(error)
+              })
           })
           .catch(error => {
-            console.log(error)
+            commit('SET_ERROR', error.message)
           })
       })
       .catch(error => {
-        console.log(error)
+        commit('SET_ERROR', error.message)
       })
   },
-  async onAuthStateChanged({ commit }, { authUser, claims }) {
+  refreshFirebaseToken({ commit }) {
+    return this.$fireAuth.currentUser.getIdToken(true).then(idToken => {
+      commit('SET_AUTH_TOKEN', idToken)
+      return idToken
+    })
+  },
+  onAuthStateChanged({ commit, dispatch }, { authUser }) {
     if (!authUser) {
       // eslint-disable-next-line no-console
       console.log('Not authenticated')
       return
     }
 
-    let token = null
-
-    try {
-      token = await this.$fireAuth.currentUser.getIdToken(true)
-    } catch (error) {
-      console.log(error)
-    }
-
-    if (!token) {
-      alert("Token couldn't be fetched. Firebase may be down")
-    }
-
     const { uid, email } = authUser
-    commit('SET_USER', { uid, email, token })
+    commit('SET_USER', { uid, email })
   }
 }
 
 export const getters = {
-  getToken: state => {
-    if (state.user) {
-      return state.user.token ? state.user.token : null
-    }
+  isAuthenticated: state => !!state.user,
+  token: state => {
+    return state.user != null ? state.user.token : null
   }
 }
