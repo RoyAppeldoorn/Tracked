@@ -11,7 +11,7 @@ install:
   - npm install
   - npm run generate
 script:
-  - echo "Skipping tests"
+  - npm run test
 deploy:
   provider: heroku
   api_key:
