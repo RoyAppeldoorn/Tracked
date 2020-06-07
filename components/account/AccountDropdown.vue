@@ -11,7 +11,7 @@
         <a href="#" class="block px-4 py-2 text-gray-600 font-medium text-sm hover:bg-tracked-purple hover:text-white">
           Support
         </a>
-        <a href="#" class="block px-4 py-2 text-gray-600 font-medium text-sm hover:bg-tracked-purple hover:text-white">
+        <a href="#" class="block px-4 py-2 text-gray-600 font-medium text-sm hover:bg-tracked-purple hover:text-white" @click="attemptLogout">
           Sign out
         </a>
       </div>
@@ -20,6 +20,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import OnClickOutside from './OnClickOutside.vue'
 
 export default {
@@ -32,10 +33,14 @@ export default {
     }
   },
   methods: {
+    ...mapActions('user', ['logout']),
     handleClickOutside() {
       if (this.isOpen) {
         this.isOpen = false
       }
+    },
+    attemptLogout() {
+      this.logout()
     }
   }
 }

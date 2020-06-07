@@ -1,3 +1,14 @@
+require('dotenv').config()
+
+const routerBase =
+  process.env.DEPLOY_ENV === 'GH_PAGES'
+    ? {
+        router: {
+          base: '/tracked/'
+        }
+      }
+    : {}
+
 export default {
   mode: 'universal',
   /*
@@ -23,6 +34,7 @@ export default {
     ],
     script: [{ src: 'https://w.soundcloud.com/player/api.js' }]
   },
+  ...routerBase,
   /*
    ** Customize the progress-bar color
    */
@@ -34,7 +46,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: ['~/plugins/axios', { src: '~/plugins/vuex-persist', ssr: false }],
   /*
    ** Nuxt.js dev-modules
    */
@@ -42,20 +54,49 @@ export default {
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
+    '@nuxtjs/dotenv'
   ],
   /*
    ** Nuxt.js modules
    */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    [
+      '@nuxtjs/firebase',
+      {
+        config: {
+          apiKey: process.env.API_KEY,
+          authDomain: process.env.AUTH_DOMAIN,
+          databaseURL: process.env.DATABASE_URL,
+          projectId: process.env.PROJECT_ID,
+          storageBucket: process.env.STORAGE_BUCKET,
+          messagingSenderId: process.env.MESSAGING_SENDER_ID,
+          appId: process.env.APP_ID
+        },
+        services: {
+          auth: {
+            initialize: {
+              onAuthStateChangedAction: 'user/onAuthStateChanged'
+            }
+          }
+        }
+      }
+    ]
   ],
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {},
+  axios: {
+    baseUrl: process.env.API_URL || 'http://localhost:8082'
+    // proxy: true
+  },
+
+  // proxy: {
+  //   '/api/': 'http://localhost:8082'
+  // },
   /*
    ** Build configuration
    */

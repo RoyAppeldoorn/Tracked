@@ -73,7 +73,7 @@
               <a href="#" class="mt-3 block font-medium text-sm hover:text-white">
                 Support
               </a>
-              <a href="#" class="mt-3 block font-medium text-sm hover:text-white">
+              <a href="#" class="mt-3 block font-medium text-sm hover:text-white" @click="attemptLogout">
                 Sign out
               </a>
             </div>
@@ -85,6 +85,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import AccountDropdown from '@/components/account/AccountDropdown.vue'
 
 export default {
@@ -101,12 +102,16 @@ export default {
     document.removeEventListener('click', this.documentClick)
   },
   methods: {
+    ...mapActions('user', ['logout']),
     documentClick(e) {
       const el = this.$refs.menu
       const target = e.target
       if (el !== target && !el.contains(target)) {
         this.isOpen = false
       }
+    },
+    attemptLogout() {
+      this.logout()
     }
   }
 }

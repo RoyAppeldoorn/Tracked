@@ -49,7 +49,8 @@ module.exports = {
           accent: '#810590',
           text: '#E4E4E4',
           pink: '#EA00FF',
-          purple: '#6A00FF'
+          purple: '#6A00FF',
+          background: '#1C1F32'
         },
         gray: {
           ...colors.gray,
