@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="!isOpen" class="shade" />
+    <div v-show="!isOpen" class="shade" />
     <header class="navbar py-1 border-t-4 border-gradient-r-pink-purple shadow-sm fixed w-full">
       <div class="container mx-auto sm:flex sm:justify-between sm:items-center px-4 py-3">
         <div class="flex items-center">
@@ -52,30 +52,49 @@
               </svg>
               <span class="ml-2 block group-hover:text-white">Tracklists</span>
             </nuxt-link>
-            <nuxt-link to="/tracklist/add" class="flex sm:mx-4 mt-3 sm:mt-0 font-medium text-sm hover:text-white group bg-transparent sm:hover:bg-gradient-bl-pink-purple font-medium sm:font-semibold sm:py-2 sm:px-4 sm:border sm:border-gradient-bl-pink-purple">
+            <nuxt-link v-if="isAuthenticated" to="/tracklist/add" class="flex sm:mx-4 mt-3 sm:mt-0 font-medium text-sm hover:text-white group bg-transparent sm:hover:bg-gradient-bl-pink-purple font-medium sm:font-semibold sm:py-2 sm:px-4 sm:border sm:border-gradient-bl-pink-purple">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="fill-current text-gray-100 h-6 w-6">
                 <path d="M13 11h4a1 1 0 010 2h-4v4a1 1 0 01-2 0v-4H7a1 1 0 010-2h4V7a1 1 0 012 0v4z" />
               </svg>
               <span class="ml-2 block group-hover:text-white">Upload</span>
             </nuxt-link>
-            <AccountDropdown class="hidden sm:block sm:ml-6" />
+            <AccountDropdown v-if="isAuthenticated" class="hidden sm:block sm:ml-6" />
+
+            <div v-show="!isAuthenticated && isOpen === false" class="sm:flex sm:ml-12 items-center">
+              <nuxt-link to="/login" class="flex mt-3 sm:mt-0 font-medium text-sm hover:text-white group">
+                <span class="ml-2 block group-hover:text-white">Login</span>
+              </nuxt-link>
+              <nuxt-link to="/register" class="flex sm:ml-2 mt-3 sm:mt-0 font-medium text-sm hover:text-white group">
+                <span class="ml-2 block group-hover:text-white">Register</span>
+              </nuxt-link>
+            </div>
           </div>
           <div class="border-t border-white opacity-25 sm:hidden" />
           <div class="sm:px-4 py-5 sm:hidden">
-            <div class="flex items-center">
+            <div v-if="isAuthenticated" class="flex items-center">
               <img class="h-8 w-8 rounded-full border-2 border-gray-500" src="https://randomuser.me/api/portraits/women/55.jpg" />
               <span class="ml-3 font-semibold">Jane Doe</span>
             </div>
             <div class="mt-4">
-              <a href="#" class="block font-medium text-sm hover:text-white">
-                Account settings
-              </a>
-              <a href="#" class="mt-3 block font-medium text-sm hover:text-white">
-                Support
-              </a>
-              <a href="#" class="mt-3 block font-medium text-sm hover:text-white" @click="attemptLogout">
-                Sign out
-              </a>
+              <div v-if="isAuthenticated">
+                <a href="#" class="block font-medium text-sm hover:text-white">
+                  Account settings
+                </a>
+                <a href="#" class="mt-3 block font-medium text-sm hover:text-white">
+                  Support
+                </a>
+                <button class="mt-3 block font-medium text-sm hover:text-white" @click="attemptLogout">
+                  Sign out
+                </button>
+              </div>
+              <div v-if="!isAuthenticated">
+                <nuxt-link to="/login" class="mt-3 block font-medium text-sm hover:text-white">
+                  Sign in
+                </nuxt-link>
+                <nuxt-link to="/register" class="mt-3 block font-medium text-sm hover:text-white">
+                  Register
+                </nuxt-link>
+              </div>
             </div>
           </div>
         </nav>
@@ -85,7 +104,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 import AccountDropdown from '@/components/account/AccountDropdown.vue'
 
 export default {
@@ -94,6 +113,9 @@ export default {
     return {
       isOpen: false
     }
+  },
+  computed: {
+    ...mapGetters('user', ['isAuthenticated'])
   },
   mounted() {
     document.addEventListener('click', this.documentClick)
