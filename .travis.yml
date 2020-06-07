@@ -16,7 +16,7 @@ deploy:
   provider: heroku
   api_key:
     secure: mWKmsC/4WmP/Le6Og/kF9HtCOHrqh7IN/+4VX7LWhv+etr2d3Tev6Ft9f46YXp6XXsUKDZFgTO11FeQC0ErIMs36KHENjJH3q6bjMKCJTb/njJnPqfcSr8cdkK0ocOt2hA8nbfuzPXwu8PtaDc/3DMle8a4METT8ARDBn9wUPaBtfe42pnb05RbAZ5K+KRDGYH0rGwtELHwyoKPZ0e73lTqZD4SWNDRBryz5Ga/i5UwWZIFosdxRvzmpQ7mCFkJ7qHapnEyFMUhBr86VRjvU4bK4Ckg4jDuuAuuzvhgZMREV1qBhCwOEzSUSWeNLptFr1gMYpOKyNW3iAOSBKX/XdylFzL4BbcgoYwKzq8nyLu/wgOWupMKtSYTLto0cEX6V9wp2Av60p4mcLxenF0pV+0J3H23wwgbF7wiYr9h0imoBSIA2KGlLetkGX4YJkVcDEfHPJynAY+9wPA0PuNNoF+FZWSLBjWdnueo9ZSsaBXrFW85MFGJTKOH5JGTcBi3ZiWYo+TG4lt4vMDvV9YGee+XMk2VF2UwlxcYqCvCw4E8hEwHaCwmAFjud4Pi91chWBZ5tXbLFlMO4zDRE89Mc6tALf70EOdT2Vd7eLOECQr90/tVf7VhRRwgJWdgcRB43AZBFBHclcu36VKutRJHo3UHh/sAC4+3lazzYJR2bSuU=
-  app: tracked-client
+  app: trackedd
   on:
     repo: RoyAppeldoorn/tracked
   skip_cleanup: 'true'
