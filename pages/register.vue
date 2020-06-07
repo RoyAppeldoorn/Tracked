@@ -47,6 +47,16 @@ export default {
     ...mapActions('user', ['register']),
     registerUser(e) {
       this.register(this.account)
+        .then(() => {
+          this.$router.push('/')
+        })
+        .catch(error => {
+          this.isError = true
+          this.errMsg = error.code
+          setTimeout(() => {
+            this.isError = false
+          }, 5000)
+        })
       e.preventDefault()
     }
   }
