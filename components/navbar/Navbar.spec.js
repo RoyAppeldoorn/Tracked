@@ -46,7 +46,37 @@ describe('Navbar.vue', () => {
     expect(actions.logout).toHaveBeenCalled()
   })
 
-  test('If user logged in, do show upload tracklist button', () => {
-    expect(true).toBe(true)
+  test('If the user is authenticated, show the upload tracklist button', () => {
+    const wrapper = shallowMount(Navbar, {
+      store,
+      localVue,
+      stubs: {
+        NuxtLink: RouterLinkStub
+      },
+      propsData: {
+        isOpen: true
+      }
+    })
+
+    const uploadButton = wrapper.find('#sign-out-button')
+    expect(uploadButton.exists()).toBe(true)
+  })
+
+  test('If not authenticated, do not show the upload tracklist button', () => {
+    const wrapper = shallowMount(Navbar, {
+      computed: {
+        isAuthenticated: () => false
+      },
+      localVue,
+      stubs: {
+        NuxtLink: RouterLinkStub
+      },
+      propsData: {
+        isOpen: true
+      }
+    })
+
+    const uploadButton = wrapper.find('#sign-out-button')
+    expect(uploadButton.exists()).toBe(false)
   })
 })
