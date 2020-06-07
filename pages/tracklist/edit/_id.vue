@@ -1,6 +1,7 @@
 <template>
   <div>
     <AudioWidget :song="song" />
+    blabla
   </div>
 </template>
 
@@ -11,8 +12,8 @@ export default {
   components: {
     AudioWidget
   },
-  asyncData({ store }) {
-    return store.dispatch('tracklists/getTracklist').then(song => {
+  asyncData({ route, store }) {
+    return store.dispatch('tracklists/getTracklist', route.params.id).then(song => {
       return { song }
     })
   },

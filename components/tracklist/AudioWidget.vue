@@ -39,7 +39,7 @@ export default {
   },
   computed: {
     convertedSoundcloudEmbedUrl() {
-      return `https://w.soundcloud.com/player/?url=${this.song.embed_url}`
+      return `https://w.soundcloud.com/player/?url=${this.song.url}`
     }
   },
   mounted() {

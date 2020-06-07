@@ -109,8 +109,8 @@ export default {
   asyncData({ $axios, error }) {
     return $axios
       .get('/genre')
-      .then(res => {
-        return { genres: res.data }
+      .then(genres => {
+        return { genres }
       })
       .catch(e => {
         console.log(e)
@@ -143,7 +143,9 @@ export default {
       e.preventDefault()
     },
     createNewTracklist(formData) {
-      this.createTracklist(formData)
+      this.createTracklist(formData).then(id => {
+        this.$router.push({ path: `/tracklist/edit/${id}` })
+      })
     },
     checkErrors() {
       this.errors = []
