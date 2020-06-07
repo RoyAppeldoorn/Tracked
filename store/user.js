@@ -22,7 +22,7 @@ export const mutations = {
 export const actions = {
   login({ commit }, account) {
     // login the user
-    this.$fireAuth
+    return this.$fireAuth
       .signInWithEmailAndPassword(account.email, account.password)
       .then(() => {
         this.$fireAuth.currentUser
@@ -37,20 +37,17 @@ export const actions = {
         console.log(error)
       })
   },
-  async logout() {
-    try {
-      if (process.client) {
-        window.localStorage.removeItem('vuex')
-      }
-
-      await this.$fireAuth.signOut()
-      this.$router.push('/login')
-    } catch (error) {
-      alert('Something went wrong.. please try again')
+  logout() {
+    if (process.client) {
+      window.localStorage.removeItem('vuex')
     }
+
+    this.$fireAuth.signOut().then(() => {
+      location.reload()
+    })
   },
   register({ commit }, account) {
-    this.$fireAuth
+    return this.$fireAuth
       .createUserWithEmailAndPassword(account.email, account.password)
       .then(() => {
         this.$fireAuth.currentUser
@@ -77,6 +74,7 @@ export const actions = {
   },
   refreshFirebaseToken({ commit }) {
     return this.$fireAuth.currentUser.getIdToken(true).then(idToken => {
+      console.log('Refreshing')
       commit('SET_AUTH_TOKEN', idToken)
       return idToken
     })
