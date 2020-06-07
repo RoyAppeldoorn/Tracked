@@ -25,6 +25,9 @@ export default {
     ],
     script: [{ src: 'https://w.soundcloud.com/player/api.js' }]
   },
+  router: {
+    middleware: ['authenticated']
+  },
   /*
    ** Customize the progress-bar color
    */
