@@ -125,6 +125,7 @@ export default {
       errorPopUp: false
     }
   },
+  middleware: 'authenticated',
   methods: {
     ...mapActions('tracklists', ['createTracklist']),
     checkForm(e) {

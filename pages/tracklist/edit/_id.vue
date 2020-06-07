@@ -12,6 +12,7 @@ export default {
   components: {
     AudioWidget
   },
+  middleware: 'authenticated',
   asyncData({ route, store }) {
     return store.dispatch('tracklists/getTracklist', route.params.id).then(song => {
       return { song }
