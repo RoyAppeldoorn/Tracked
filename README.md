@@ -1,5 +1,5 @@
 # Tracked
-
+[![Build Status](https://travis-ci.com/RoyAppeldoorn/tracked.svg?branch=master)](https://travis-ci.com/RoyAppeldoorn/tracked)
 > My luminous Nuxt.js project, a better alternative to https://www.1001tracklists.com/
 
 ## Build Setup
