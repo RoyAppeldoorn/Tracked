@@ -40,7 +40,7 @@
           </div>
         </div>
       </div>
-      <div class="overflow-hidden hidden md:block relative mx-auto w-2/3 shadow-xl -mb-12">
+      <div class="overflow-hidden hidden md:block relative mx-auto w-2/3 shadow-xl -mb-12 rounded-lg">
         <div class="pb-2/5">
           <img :src="require('~/assets/hero-2.jpg')" class="absolute w-full h-full object-cover" rel="preload" />
         </div>
